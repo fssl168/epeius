@@ -601,7 +601,7 @@ async function getTrojanConfig(password, hostName, sub, UA, RproxyIP, _url) {
 	const Config = 配置信息(password , hostName);
 	const v2ray = Config[0];
 	const clash = Config[1];
-	let proxyhost = "";
+	let proxyhost = 域名地址;
 	if(hostName.includes(".workers.dev") || hostName.includes(".pages.dev")){
 		if ( proxyhostsURL && (!proxyhosts || proxyhosts.length == 0)) {
 			try {
@@ -864,9 +864,10 @@ function subAddresses(host,pw,userAgent,newAddressesapi,newAddressescsv) {
 			}
 		}
 		
-		let 伪装域名 = host ;
+		let 伪装域名 = 域名地址 ;
 		let 最终路径 = '/?ed=2560' ;
 		let 节点备注 = '';
+		let 节点alpn = 'h3';
 		
 		if(proxyhosts.length > 0 && (伪装域名.includes('.workers.dev') || 伪装域名.includes('pages.dev'))) {
 			最终路径 = `/${伪装域名}${最终路径}`;
@@ -879,7 +880,7 @@ function subAddresses(host,pw,userAgent,newAddressesapi,newAddressescsv) {
 
 		const 啥啥啥_写的这是啥啊 = 'dHJvamFu';
 		const 协议类型 = atob(啥啥啥_写的这是啥啊);
-		const trojanLink = `${协议类型}://${密码}@${address}:${port}?security=tls&sni=${伪装域名}&fp=randomized&type=ws&host=${伪装域名}&path=${encodeURIComponent(最终路径)}#${encodeURIComponent(addressid + 节点备注)}`;
+		const trojanLink = `${协议类型}://${密码}@${address}:${port}?security=tls&sni=${伪装域名}&fp=randomized&type=ws&alpn=${alpn}&host=${伪装域名}&path=${encodeURIComponent(最终路径)}#${encodeURIComponent(addressid + 节点备注)}`;
 
 		return trojanLink;
 	}).join('\n');
